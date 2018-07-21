@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Arrays</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const nombre = "Eduardo"
+		const dias = [
+		"lunes",
+		"martes",
+		"miercoles",
+		"jueves",
+		"viernes",
+		"sabado",
+		"domingo"
+		]
+		const correr = (max,min) => Math.round(Math.random() * (max-min)) + min
+		let total = 0
+		const dayIs = (dias) => {
+			dias.map((value, key) => {
+				let kms = correr(15,5)
+				total += kms
+				document.write(`<p></p>El dia ${key+1} es el ${value} y ${nombre} corrió ${kms} kilometros, en total va corriendo ${total} kms`)
+			})
+		}
+		dayIs(dias)
+		const promedioKms = total / dias.length
+		document.write(`<p></p>En promedio ${nombre} corrió ${promedioKms.toFixed(2)} kilometros al dia`)
+
+	</script>
+</body>
+</html>
