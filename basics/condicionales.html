@@ -18,7 +18,7 @@
 		const nameKira = 'Kira'
 		const ageKira = 11
 
-		function canWatchStarWars7(name, age, company){
+		const canWatchStarWars7 = (name, age, company=false) => {
 			if (age >= PGStarwars7) {
 				alert(`${name} puede pasar a ver ${startwars7}`)
 			}
@@ -29,8 +29,8 @@
 				alert(`${name} no puede pasar a ver ${startwars7}. TIene ${age} años y necesita mas o igual a ${PGStarwars7} años.`)
 			}
 		}
-		canWatchStarWars7(nameLalo, ageLalo, false)
-		canWatchStarWars7(nameSanti, ageSanti, false)
+		canWatchStarWars7(nameLalo, ageLalo)
+		canWatchStarWars7(nameSanti, ageSanti)
 		canWatchStarWars7(nameKira, ageKira, true)
 	</script>
 </body>
