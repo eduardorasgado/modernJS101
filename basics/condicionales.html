@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Conditionals</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const startwars7 = 'Star Wars: El despertar de la fuerza'
+		const PGStarwars7 = 13
+
+		const nameLalo = 'Eduardo'
+		const ageLalo = 24
+
+		const nameSanti = 'Santiago'
+		const ageSanti = 12
+
+		const nameKira = 'Kira'
+		const ageKira = 11
+
+		function canWatchStarWars7(name, age, company){
+			if (age >= PGStarwars7) {
+				alert(`${name} puede pasar a ver ${startwars7}`)
+			}
+			else if (company) {
+				alert(`${name} puede pasar a ver ${startwars7}. Aunque su edad es ${age}, va acompañado de un adulto`)
+			}
+			else {
+				alert(`${name} no puede pasar a ver ${startwars7}. TIene ${age} años y necesita mas o igual a ${PGStarwars7} años.`)
+			}
+		}
+		canWatchStarWars7(nameLalo, ageLalo, false)
+		canWatchStarWars7(nameSanti, ageSanti, false)
+		canWatchStarWars7(nameKira, ageKira, true)
+	</script>
+</body>
+</html>
