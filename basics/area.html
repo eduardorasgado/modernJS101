@@ -2,10 +2,13 @@
 	<script>
 		let base   = 5
 		let altura = 7
-		function triangleArea(base, altura){
-			return ((base * altura) / 2)
-		}
-		document.write(`El area de un triangulo de base
-			${base} y altura ${altura} es :${triangleArea(base, altura)}`)
+		const triangleArea = (base, altura) => ((base * altura) / 2)
+
+		const circleArea = (radio) => Math.PI * Math.pow(radio, 2)
+
+		document.write(`El area de un triangulo de base ${base} y altura ${altura} es :${triangleArea(base, altura)}`)
+		document.write("<p></p>")
+		let radio = 1
+		document.write(`El area de un circulo de radio ${radio}, es: ${circleArea(radio)}`)
 	</script>
 </html>
