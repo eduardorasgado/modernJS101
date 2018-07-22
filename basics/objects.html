@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Objects</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const p1 = {
+			x: 0,
+			y: 4
+		}
+		const p2 = {
+			x: 3,
+			y: 0
+		}
+		function distancia (p1, p2) {
+			const x = p1.x - p2.x
+			const y = p1.y - p2.y
+			d = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
+			return d
+		}
+		document.write(`La distancia es: ${distancia(p1, p2)}`)
+
+	</script>
+</body>
+</html>
