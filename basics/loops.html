@@ -12,13 +12,48 @@
 		const MAX_POWER = 12
 
 		const ambosSiguenVivos = () => vidaGoku > 0 && vidaSuperman > 0
-		let round = 1
+		const calcularGolpe = () => Math.round(Math.random() * (MAX_POWER - MIN_POWER)) + MIN_POWER
+		let round = 0
 		while (ambosSiguenVivos()) {
-			document.write(`<p></p>${round}`)
-			if (round >20) {
+			round +=1
+			document.write(`<p></p><span style='color: blue'>La ronda es: ${round}</span>`)
+			const golpeGoku = calcularGolpe()
+			const golpeSuperman = calcularGolpe()
+			//devuelve el numero mayor  de los ataques
+			let golpe = golpeGoku > golpeSuperman ? golpeGoku : golpeSuperman
+			//imprime los golpes
+			document.write(`<p></p>Goku: ${golpeGoku}, Superman: ${golpeSuperman}`)
+			//si hay empate
+			if (golpeGoku == golpeSuperman) {
+				document.write("<span style='color: red'>--> No ha golpeado nadie</span>")
+				//salir automaticamente de esa iteracion
+				continue
+			}
+			//destacar a quien golpea relacionando el golpe con su nombre
+			golpeNombre = golpeGoku == golpe ? "Goku" : "Superman"
+			document.write(`---> Ha golpeado: ${golpeNombre} con: ${golpe}`)
+			
+			if (golpeNombre == "Goku") {
+				vidaSuperman -= golpe
+				if (vidaSuperman <=0) {
+					document.write(`<p></p><span style='color: yellow; background: black'>==========Ganador: GOKU CON UNA VIDA DE: ${vidaGoku}=============</span>`)
+					break
+				}
+			}
+			else {
+				vidaGoku -= golpe
+				if (vidaGoku <=0) {
+					document.write(`<p></p><span style='color: yellow; background: black'>===============Ganador: SUPERMAN CON UNA VIDA DE ${vida}==============</span>`)
+					break
+				}
+			}
+			//imprime el tablero de vidas
+			document.write(`<p></p>VIDAS---> GOKU: ${vidaGoku} | SUPERMAN: ${vidaSuperman}`)
+			//hay un limite de rounds,como debe de ser en torneos oficiales :)
+			if (round >=20) {
+				document.write(`<p></p><span style='color: yellow; background: black'>===============FIN DE LA PELEA: EMPATE==============</span>`)
 				break
 			}
-			round +=1
 		}
 	</script>
 </body>
