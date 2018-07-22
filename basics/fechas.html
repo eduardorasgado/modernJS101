@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Fechas</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const name= 'Lalo'
+		//8 de mayo
+		const nacimiento = new Date(1994, 4, 8)
+		document.write(`${name} nació el ${nacimiento}`)
+		document.write("<p></p>")
+
+		const hoy = new Date()
+		document.write(`Hoy es ${hoy}`)
+		document.write("<p></p>")
+
+		const tiempoDesdeNac = hoy - nacimiento
+		document.write(`El tiempo que ha transcurrido es de ${tiempoDesdeNac} ms`)
+
+		const tiempoSegundos = tiempoDesdeNac / 1000
+		document.write("<p></p>")
+		document.write(`El tiempo que ha transcurrido en segundos es de ${tiempoSegundos} segundos`)
+
+		const tiempoMinutos = tiempoDesdeNac / 1000 / 60
+		document.write("<p></p>")
+		document.write(`El tiempo que ha transcurrido en minutos es de ${tiempoMinutos.toFixed(2)} minutos`)
+
+		const tiempoHoras = tiempoDesdeNac / 1000 / 60 / 60
+		document.write("<p></p>")
+		document.write(`El tiempo que ha transcurrido en horas es de ${tiempoHoras.toFixed(2)} horas`)
+
+		const tiempoDias = tiempoDesdeNac / 1000 / 60 / 60 / 24
+		document.write("<p></p>")
+		document.write(`El tiempo que ha transcurrido en Dias es de ${tiempoDias.toFixed(2)} Dias`)
+
+		const tiempoYear = tiempoDesdeNac / 1000 / 60 / 60 / 24 / 365
+		document.write("<p></p>")
+		document.write(`El tiempo que ha transcurrido en años es de ${tiempoYear.toFixed(2)} años`)
+
+		//Mi siguiente birthday
+		const nextBirth = new Date(hoy.getFullYear()+1, nacimiento.getMonth(), nacimiento.getDate())
+		document.write("<p></p>")
+		document.write(`El siguiente cumpleaños de ${name} es ${nextBirth}`)
+
+		const diasSemana = [
+			"Domingo",
+			"Lunes",
+			"Martes",
+			"Miercoles",
+			"Jueves",
+			"Viernes",
+			"Sabado"
+		]
+		document.write("<p></p>")
+		document.write(`Dia de la semana que cae el cumple de ${name}, es: ${diasSemana[nextBirth.getDay()]}`)
+		document.write("<p></p>")
+		document.write(`Faltan ${((nextBirth - hoy) / 1000 / 60 / 60 /24).toFixed(0)} dias para el siguiente cumpleaños de ${name}`)
+
+
+
+	</script>
+</body>
+</html>
