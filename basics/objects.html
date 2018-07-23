@@ -9,20 +9,38 @@
 		//Estos son los objetos
 		const p1 = {
 			x: 0,
-			y: 4
+			y: 4,
+			mover_enX (desplazamientox) { this.x =  this.x + desplazamientox },
+			mover_enY (desplazamientoy) { this.y = this.y + desplazamientoy }
 		}
 		const p2 = {
 			x: 3,
-			y: 0
+			y: 0,
+			mover_enX (desplazamientox) { this.x =  this.x + desplazamientox },
+			mover_enY (desplazamientoy) { this.y = this.y + desplazamientoy }
 		}
+		
 		function distancia (p1, p2) {
 			const x = p1.x - p2.x
 			const y = p1.y - p2.y
 			d = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
 			return d
 		}
-		document.write(`La distancia es: ${distancia(p1, p2)}`)
 
+		document.write(`p1: [${p1.x}, ${p1.y}], p2: [${p2.x}, ${p2.y}]`)
+		document.write("<p></p>")
+		document.write(`La distancia es: ${distancia(p1, p2)}`)
+		document.write("<p></p>")
+		p1.mover_enX(10)
+		document.write(`p1: [${p1.x}, ${p1.y}], p2: [${p2.x}, ${p2.y}]`)
+		document.write("<p></p>")
+		document.write(`La distancia es: ${distancia(p1, p2)}`)
+		document.write("<p></p>")
+		p2.mover_enY(-4)
+		document.write(`p1: [${p1.x}, ${p1.y}], p2: [${p2.x}, ${p2.y}]`)
+		document.write("<p></p>")
+		document.write(`La distancia es: ${distancia(p1, p2)}`)
+		document.write("<p></p>")
 	</script>
 </body>
 </html>
