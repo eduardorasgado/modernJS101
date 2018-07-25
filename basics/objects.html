@@ -6,6 +6,20 @@
 </head>
 <body>
 	<script type="text/javascript">
+
+		function Punto(x, y){
+			this. = x
+			this.y = y
+		}
+
+		//definicion de los metodos para el prototipo punto
+		Punto.prototype.mover_enX = function mover_enX(desplazamientox) { this.x =  this.x + desplazamientox }
+		Punto.prototype.mover_enY = function mover_enY(desplazamientoy) { this.y = this.y + desplazamientoy }
+
+		//prototipos de clase
+		const pp1 = new Punto(0, 4)
+		const pp2 = new Punto(3,0)
+
 		//Estos son los objetos
 		const p1 = {
 			x: 0,
