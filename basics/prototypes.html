@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prototypes(classes)</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Punto(x, y){
+			this.x = x
+			this.y = y
+		}
+
+		//definicion de los metodos para el prototipo punto
+		Punto.prototype.mover_enX = function mover_enX(desplazamientox) { this.x =  this.x + desplazamientox }
+		Punto.prototype.mover_enY = function mover_enY(desplazamientoy) { this.y = this.y + desplazamientoy }
+		Punto.prototype.distancia = function distancia(p){
+			const x = this.x - p.x
+			const y = this.y - p.y
+
+			return Math.sqrt( (x * x) + (y * y)) 
+		}
+
+		//prototipos de clase
+		const p1 = new Punto(0, 4)
+		const p2 = new Punto(3, 0)
+
+		document.write(`p1: [${p1.x}, ${p1.y}], p2: [${p2.x}, ${p2.y}]`)
+		document.write("<p></p>")
+		document.write(`La distancia es: ${p1.distancia(p2)}`)
+		document.write("<p></p>")
+		p1.mover_enX(10)
+		document.write(`p1: [${p1.x}, ${p1.y}], p2: [${p2.x}, ${p2.y}]`)
+		document.write("<p></p>")
+		document.write(`La distancia es: ${p1.distancia(p2)}`)
+		document.write("<p></p>")
+		p2.mover_enY(-4)
+		document.write(`p1: [${p1.x}, ${p1.y}], p2: [${p2.x}, ${p2.y}]`)
+		document.write("<p></p>")
+		document.write(`La distancia es: ${p1.distancia(p2)}`)
+		document.write("<p></p>")
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Classes</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//otro tipo de clases
+		const Punto = {
+			//por estandarizacion ponemos init pero puede ser otra cosa
+			init: function init (x, y) {
+				this.x = x
+				this.y = y
+			},
+			mover_EnX: function mover_enX (desplazamientox) { this.x =  this.x + desplazamientox },
+			mover_enY: function mover_enY (desplazamientoy) { this.y = this.y + desplazamientoy },
+			distancia: function distancia (p) {
+				const x = this.x - p.x
+				const y = this.y - p.y
+
+				return Math.sqrt( (x * x) + (y * y))
+			}
+		}
+
+		//este tipo de objetos se crea con Object.create
+		const p1 = Object.create(Punto)
+		p1.init(0, 4)
+		const p2 = Object.create(Punto)
+		p2.init(3, 0)
+
+	</script>
+</body>
+</html>
