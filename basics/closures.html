@@ -46,11 +46,17 @@
 			}
 		}
 
+		//con arrow functions
+		makePrefixer2 = prefixer => valor => document.write("<p></p>" + prefixer + valor)
+
 		const rePrefix = makePrefixer("pro")
+		const rePrefix2 = makePrefixer2("re")
 		
 		rePrefix("activo")
 		rePrefix("vida")
 		rePrefix("accion")
+		rePrefix2("bueno")
+		rePrefix2("vender")
 	</script>
 </body>
 </html>
