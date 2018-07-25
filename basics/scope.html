@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scope</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var nombre = "Lalo"
+		function saludar(nombre){
+			document.write(`Hola ${nombre}`)
+		}
+
+		saludar("Sasha")
+		document.write("<p></p>")
+		document.write(`Hola ${nombre}`)
+		document.write("<p></p>-------------------")
+
+		function saludar2(){
+			nombre = "eki"
+			document.write(`Hola ${nombre}`)
+		}
+		saludar2("Sasha")
+		document.write("<p></p>")
+		document.write(`Hola ${nombre}`)
+		document.write("<p></p>-------------------")
+
+		function saludar10(nombre){
+			for (var i = 0; i < 10; i++) {
+			 	document.write(`  ${nombre}`)
+			}
+			//Esto si se imprime a pesar de que i no fue declarado en el scope global,
+			//Se le conoce como Hoisting, JS baja una variable nombrada dentro de una
+			//condicion o un loop al scope de la function que la contenga
+			document.write(`El valor de i es: ${i}`)
+		}
+
+		saludar10("Sasha")
+		document.write("<p></p>")
+		document.write(`Hola ${nombre}`)
+		document.write("<p></p>-------------------")
+
+		function saludar10let(nombre){
+			for (let i = 0; i < 10; i++) {
+			 	document.write(`  ${nombre}`)
+			}
+			//con let se evitan los bugs por lo que hace javascript con var
+			//asi la siguiente linea genera un error
+			//document.write(`El valor de i es: ${i}`)
+		}
+
+		saludar10let("Sasha")
+		document.write("<p></p>")
+		document.write(`Hola ${nombre}`)
+		document.write("<p></p>-------------------")
+
+		function saludar10const(){
+			const nombre = "Lalo"
+			for (let i = 0; i < 10; i++) {
+			 	document.write(`  ${nombre}`)
+			}
+		}
+
+		saludar10const()
+		document.write("<p></p>")
+		document.write(`Hola ${nombre}`)
+		document.write("<p></p>-------------------")
+	</script>
+</body>
+</html>
