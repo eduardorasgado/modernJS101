@@ -6,7 +6,7 @@
 <body>
 	<script type="text/javascript">
 		//spread operator
-		function suma (...args) {
+		const suma = (...args) => {
 			const addition = args.reduce(function (add, n) {
 				add += n
 				return add
@@ -15,14 +15,16 @@
 			document.write(`La suma es: ${addition}`)
 		}
 
-		function doble(...args) {
-			return args.map((n) => n*2)
-		}
+		const doble = (...args) => args.map((n) => n*2)
+
+		const pares = (...args) => args.filter((num) => num % 2 == 0)
 		
 		//ejecuciones
 		suma(4, 8, 12, 8954, 7, 2000, 1, 4)
 		document.write(`<p></p>`)
 		document.write(`El doble: [${doble(4, 8, 12, 8954, 7, 2000, 1, 4)}]`)
+		document.write("<p></p>")
+		document.write(`Los pares son: ${pares(4, 8, 12, 8954, 7, 2000, 1, 4)}`)
 	</script>
 </body>
 </html>
