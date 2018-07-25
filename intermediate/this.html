@@ -5,7 +5,24 @@
 </head>
 <body>
 	<script type="text/javascript">
-		
+		class Persona {
+			constructor (nombre, amigos) {
+				this.nombre = nombre
+				this.amigos = amigos || []
+
+				this.nombre = this.nombre.bind()
+			}
+
+			listarAmigos() {
+				const _this = this
+				this.amigos.forEach( function (amigo) {
+					document.write(`Hola mi nombre es: ${_this.nombre} y soy amigo de ${amigo}`)
+				})
+			}
+		}
+		const eduardo = new Persona("Eduardo", ["Roy", "Franco", "Chuy"])
+		eduardo.listarAmigos()
+
 	</script>
 </body>
 </html>
