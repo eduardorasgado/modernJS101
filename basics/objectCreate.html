@@ -12,7 +12,7 @@
 				this.x = x
 				this.y = y
 			},
-			mover_EnX: function mover_enX (desplazamientox) { this.x =  this.x + desplazamientox },
+			mover_enX: function mover_enX (desplazamientox) { this.x =  this.x + desplazamientox },
 			mover_enY: function mover_enY (desplazamientoy) { this.y = this.y + desplazamientoy },
 			distancia: function distancia (p) {
 				const x = this.x - p.x
@@ -27,6 +27,21 @@
 		p1.init(0, 4)
 		const p2 = Object.create(Punto)
 		p2.init(3, 0)
+
+		document.write(`p1: [${p1.x}, ${p1.y}], p2: [${p2.x}, ${p2.y}]`)
+		document.write("<p></p>")
+		document.write(`La distancia es: ${p1.distancia(p2)}`)
+		document.write("<p></p>")
+		p1.mover_enX(10)
+		document.write(`p1: [${p1.x}, ${p1.y}], p2: [${p2.x}, ${p2.y}]`)
+		document.write("<p></p>")
+		document.write(`La distancia es: ${p1.distancia(p2)}`)
+		document.write("<p></p>")
+		p2.mover_enY(-4)
+		document.write(`p1: [${p1.x}, ${p1.y}], p2: [${p2.x}, ${p2.y}]`)
+		document.write("<p></p>")
+		document.write(`La distancia es: ${p1.distancia(p2)}`)
+		document.write("<p></p>")
 
 	</script>
 </body>
