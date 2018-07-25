@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Other things</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var nombre = "Lalo";
+		//si a la IIFE le antecede algo, se debe poner a este algo un punto y coma
+		//ya que generaria un error al no llevarlo
+
+		//FUNCIONES IIFE: Inmediately Invoke Function Expression
+		//nada afuera del scope de la funcion tipo IIFE se puede mandar a llamar
+		(function saludar() {
+			let archivo = "ARCHIVO"
+			document.write(`Se manda a llamar inmediatamente se ejecute el ${archivo}`)
+		})();
+
+		//incluso aqui sera necesario el ;
+		document.write("<p></p>");
+		//manejo de arreglos
+		[
+		"lunes",
+		"martes",
+		"miércoles",
+		"jueves",
+		"viernes"
+		].forEach(function (dia) {
+			document.write("<p></p>")
+			document.write(`El dia es: ${dia}`)
+		})
+
+	</script>
+</body>
+</html>
