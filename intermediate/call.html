@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Call y Apply</title>
+</head>
+<body>
+	<script type="text/javascript">
+		const lalo = {
+			nombre: "Eduardo",
+			apellido: "Rasgado"
+		}
+
+		function saludar(veces){
+			for(let i = 0; i < veces; i++){
+				document.write("<p></p>")
+				document.write(`Hola ${this.nombre} ${this.apellido}`)
+			}
+		}
+
+		function saludarComplex(veces, uppercase){
+			let str = `Hola ${this.nombre} ${this.apellido}`
+			str = uppercase ? str.toUpperCase() : str
+
+			for(let i = 0; i < veces; i++){
+				document.write("<p></p>")
+				document.write(str)
+			}
+		}
+
+		//metodo call
+		//con ello le decimos quien es el this
+		saludar.call(lalo, 3)
+
+		const params = [3, true]
+		saludarComplex.call(lalo, ...params)
+
+		document.write("<p>-------------------</p>")
+		
+		//metodo apply que hace lo mismo solo que los parametros se pasan en un array
+		saludarComplex.apply(lalo, [3, true])
+	</script>
+</body>
+</html>

@@ -4,8 +4,9 @@ class Toggable {
 		this.element = element
 		this.element.innerHTML = "Off"
 		this.activated = false
+		this.onClick = this.onClick.bind(this)
 		//necesario para que js no tome como this al objeto boton del html
-		this.element.addEventListener('click', this.onClick.bind(this))
+		this.element.addEventListener('click', this.onClick)
 	}
 
 	onClick () {
