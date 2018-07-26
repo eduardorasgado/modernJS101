@@ -4,6 +4,50 @@
 	<title>Callback a u servidor externo</title>
 </head>
 <body>
+	<script type="text/javascript">
+		//AJAX
+		function get(URL, callback) {
+			const xhr = new XMLHttpRequest()
 
+			xhr.onreadystatechange = function () {
+				const DONE = 3
+				const OK = 200
+				if (this.readyState == DONE) {
+					if (this.status == OK) {
+						//todo ok
+						//null para el error
+						callback(null, JSON.parse(this.responseText))
+					} else {
+						//error
+						callback(new Error(`Se produjo un error al realizar el request: ${this.status}`))
+					}
+				}
+			}
+
+			xhr.open('GET', URL)
+			xhr.send(null)
+		}
+
+		function _handleError(err) {
+			console.log(`Request failed ${err}`)
+		}
+		//obtener de la url de luke
+		get('https://swapi.co/api/people/1/', function onResponse(err, luke) {
+			if (err) {
+				return _handleError(err)
+			}
+			//obtener de la url del homeworld de luke
+			get(luke.homeworld, function onHomeworldResponse(err, homeworld){
+				if(err) {
+					return _handleError(err)
+				}
+				luke.homeworld = homeworld
+				console.log(`${}`)
+			})
+			console.log('Request succeded')
+			console.log('luke', luke)
+		})
+		
+	</script>
 </body>
 </html>
