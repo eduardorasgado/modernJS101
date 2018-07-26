@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Async-Await</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//promises con fetch
+		let luke
+		fetch('https://swapi.co/api/people/1/')
+		.then(response => response.json())
+		.then((json) => {
+			luke = json
+			return fetch(luke.homeworld)
+		})
+		.then(response => response.json())
+		.then((json) => {
+			luke.homeworld = json
+			document.write(`${luke.name} nació en ${luke.homeworld.name}`)
+		})
+		.catch((err) => console.log(`El error es: ${err}`))
+	</script>
+</body>
+</html>
