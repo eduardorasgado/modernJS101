@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Callback a u servidor externo</title>
+</head>
+<body>
+	<h1>Requester con Promises</h1>
+	<p id="change">Vacío</p>
+	<p>End info</p>
+	<script type="text/javascript">
+		//creando una promesa
+		/*
+		const promise = new Promise(function (resolve, reject){
+			setTimeout(resolve, 1000)
+		})
+
+		//suscribirse a la promesa
+		promise
+		.then(function () {
+
+		})
+		.catch(function (err) {
+
+		})
+		*/
+
+		//AJAX con promesas
+		function get(URL) {
+			return new Promise((resolve, reject) => {
+				const xhr = new XMLHttpRequest()
+
+				xhr.onreadystatechange = function () {
+					const DONE = 4
+					const OK = 200
+					if (this.readyState === DONE) {
+						if (this.status === OK) {
+							//succeeded con promises
+							resolve(JSON.parse(this.responseText))
+						} else {
+							//error con promises
+							reject(new Error(`Se produjo un error al realizar el request: ${this.status}`))
+						}
+					}
+				}
+
+				xhr.open('GET', URL)
+				xhr.send(null)
+			})
+		}
+
+		function _handleError(err) {
+			console.log(`Request failed ${err}`)
+		}
+
+		//llamando a get con sintaxis de proomesa
+		let luke
+		//obtener de la url de luke
+		//tambien podemos usar ***fetch*** en vez de get
+		get('https://swapi.co/api/people/1/')
+		.then((response) => {
+			//obtener de la url del homeworld de luke
+			luke = response
+			return get(luke.homeworld)
+		})
+		.then((homeworld) => {
+			luke.homeworld = homeworld
+			console.log(`${luke.name} nació en ${luke.homeworld.name}`)
+			let c = document.getElementById('change')
+			c.innerHTML = `${luke.name} nació en ${luke.homeworld.name}`
+		})
+		.catch((err) => _handleError(err))
+		
+
+		//Otro ejemplo de promesa con timer
+		const promise = new Promise((resolve, reject) => {
+		const number = Math.floor(Math.random() * 10);
+
+			setTimeout(
+				() => number > 5
+					? resolve(number)
+					: reject(new Error('Menor a 5')),
+				1000
+			);
+		});
+
+		promise
+		.then(number => console.log(number))
+		.catch(error => console.error(error));
+		
+	</script>
+</body>
+</html>
