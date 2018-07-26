@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Callbacks de javascript</title>
+</head>
+<body>
+	<p id="change">Holaaa!</p>
+	<script type="text/javascript">
+		setTimeout(function callback() {
+			//document.write("Ya pasó 5 segundo(s)")
+			let c = document.getElementById("change")
+			c.innerHTML = "Adios"
+		}, 5000)
+		//document.write("Hola")
+
+	</script>
+</body>
+</html>
