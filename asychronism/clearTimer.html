@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Clear timers</title>
+</head>
+<body>
+	<button id="cancel-button">cancel</button>
+	<script type="text/javascript">
+		const $cancelButton = document.getElementById("cancel-button")
+		
+		const timeout = setTimeout(() => {
+			alert("Han pasado 5 segundos")
+		}, 5000)
+
+		$cancelButton.addEventListener('click', () => {
+			clearTimeout(timeout)
+		})
+
+	</script>
+</body>
+</html>

@@ -6,10 +6,10 @@
 <body>
 	<h1>Ha<span id="n">n</span> pasado <span id="change">0</span> segundo<span id="s">s</span></h1>
 	<script type="text/javascript">
-		
+		var num = 1
 		n = document.getElementById("n")
 		s = document.getElementById("s")
-		setInterval((num = 1) => {
+		setInterval(() => {
 			num == 1 ? n.innerHTML = " " : n.innerHTML= "n"
 			num == 1 ? s.innerHTML = " " : s.innerHTML = "s"
 			document.getElementById("change").innerHTML = num++
