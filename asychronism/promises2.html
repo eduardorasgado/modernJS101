@@ -56,7 +56,8 @@
 			$agenda.textContent = msg
 		}
 		function error(err) {
-			console.log(`Algún error ocurrió: ${err}`)
+			$agenda.style.color = 'red'
+			$agenda.textContent = `Algo ocurrió... ${err}`
 		}
 		despertar()
 		.then(ducha)
