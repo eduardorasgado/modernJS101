@@ -5,7 +5,7 @@
 	<title>Mas de callbacks</title>
 </head>
 <body>
-	<h1 id="agenda">Estoy despertando</h1>
+	<h1 id="agenda">Estoy despertando...</h1>
 
 	<script type="text/javascript">
 		const DESPERTAR = 3000
@@ -17,6 +17,18 @@
 
 		setTimeout(() => {
 			$agenda.textContent = 'Ahora me estoy duchando...'
+			setTimeout(() => {
+				$agenda.textContent = 'Ahora me estoy vistiendo...'
+				setTimeout(() => {
+					$agenda.textContent = 'Ahora estoy desayunando...'
+					setTimeout(() => {
+						$agenda.textContent = 'Ahora estoy tomando clases en Platzi...'
+						setTimeout(() => {
+							$agenda.textContent = "Ah que buenas clases."
+						}, PLATZI)
+					}, DESAYUNAR)
+				}, VESTIRSE)
+			}, DUCHA)
 		}, DESPERTAR)
 	</script>
 </body>
