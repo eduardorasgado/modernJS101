@@ -42,7 +42,8 @@
 		function desayunar(msg) {
 			$agenda.textContent = msg
 			return new Promise((resolve, reject) => {
-				setTimeout(() => resolve("Ahora estoy aprendiendo en platzi..."), DESAYUNAR)
+				// setTimeout(() => resolve("Ahora estoy aprendiendo en platzi..."), DESAYUNAR)
+				setTimeout(() => reject(new Error("NO HAY COMIDA!")))
 			})
 		}
 		function platzi(msg) {
@@ -54,12 +55,16 @@
 		function final(msg) {
 			$agenda.textContent = msg
 		}
+		function error(err) {
+			console.log(`Algún error ocurrió: ${err}`)
+		}
 		despertar()
 		.then(ducha)
 		.then(vestirme)
 		.then(desayunar)
 		.then(platzi)
 		.then(final)
+		.catch(error)
 
 	</script>
 </body>
