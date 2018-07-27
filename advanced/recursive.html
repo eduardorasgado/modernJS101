@@ -21,13 +21,11 @@
 		//recursividad y memoizacion
 		function fibonacci(n, storage = {}){
 			contador++
-
+			console.log(contador)
 			//para evitar llamar a la recursividad cuando ya se sabe el numero
 			if(storage[n]) return  storage[n]
 			if (n == 1) return 0
 			if (n == 2) return 1
-
-			console.log(contador)
 			
 			return storage[n] = fibonacci(n-1, storage) + fibonacci(n-2, storage)
 		}
