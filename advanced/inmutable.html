@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inmutabilidad</title>
+</head>
+<body>
+	<script type="text/javascript">
+		lalo = { nombre: "Eduardo", edad: 24}
+
+		cumpleanos = function (persona) {
+			//clonando un objeto
+			const clone = Object.assign({}, persona)
+			clone.edad++
+			return clone
+		}
+		lalo2 = cumpleanos(lalo)
+
+		//con esto ya no se modu¿ifica el primer elemento arreglo al modificar el segundo
+		document.write(`Edad original: ${lalo.edad}`)
+		document.write("<p></p>")
+		document.write(`Edad clone: ${lalo2.edad}`)
+
+	</script>
+</body>
+</html>
